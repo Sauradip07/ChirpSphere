@@ -25,3 +25,11 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+#ScrollHider::-webkit-scrollbar {
+  display: none;
+}
+#ScrollHider{
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}

@@ -1,0 +1,9 @@
+body::-webkit-scrollbar {
+    display: none; /* make scrollbar transparent */
+  }
+.container::-webkit-scrollbar {
+    display: none; /* make scrollbar transparent */
+}
+body::-webkit-scrollbar {
+  display: none; /* make scrollbar transparent */
+}

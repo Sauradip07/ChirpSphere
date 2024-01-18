@@ -10,9 +10,9 @@ import { RiFileList2Line } from "react-icons/ri";
 import { FaRegUser } from "react-icons/fa6";
 import { CgMoreO } from "react-icons/cg";
 import Feedcard from '@/components/FeedCard';
-
-
+import styles from './scrollHidden.module.css';
 import React from 'react';
+
 import { link } from 'fs';
 
 
@@ -63,7 +63,7 @@ const sidebarMenuItem : TwitterSidebarButton [] = [
 export default function Home() {
   return (
     <div>
-      <div className='grid grid-cols-12 h-screen w-screen px-56 '>
+      <div className='grid grid-cols-12 h-screen w-screen px-56 overflow-hidden'>
         <div className='col-span-3 pt-1'>
           <div className='text-3xl h-fit w-fit hover:bg-gray-800 rounded-full  p-2 cursor-pointer transition-all duration-75 ease-linear mx-7 '>
             <BsTwitterX/>
@@ -83,7 +83,13 @@ export default function Home() {
           </div>
           
         </div>
-        <div className='col-span-6 border-r-[0.5px] border-l-[0.5px] border-gray-600 '>
+        <div className='col-span-6 border-r-[0.5px] border-l-[0.5px] h-screen overflow-scroll overflow-x-hidden border-gray-600v' id="ScrollHider">
+          <Feedcard />
+          <Feedcard />
+          <Feedcard />
+          <Feedcard />
+          <Feedcard />
+          <Feedcard />
           <Feedcard />
           <Feedcard />
           <Feedcard />
