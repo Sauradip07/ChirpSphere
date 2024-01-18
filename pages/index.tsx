@@ -1,6 +1,5 @@
 /* eslint-disable react/jsx-key */
 import Image from 'next/image'
-import { Inter } from 'next/font/google'
 import { BsTwitterX } from "react-icons/bs";
 import { BiSolidHome } from "react-icons/bi";
 import { IoSearch } from "react-icons/io5";
@@ -10,12 +9,13 @@ import { FaRegBookmark } from "react-icons/fa6";
 import { RiFileList2Line } from "react-icons/ri";
 import { FaRegUser } from "react-icons/fa6";
 import { CgMoreO } from "react-icons/cg";
+import Feedcard from '@/components/FeedCard';
 
 
 import React from 'react';
 import { link } from 'fs';
 
-const inter = Inter({ subsets: ['latin'] })
+
 
 interface TwitterSidebarButton {
   text: string
@@ -48,6 +48,10 @@ const sidebarMenuItem : TwitterSidebarButton [] = [
     icon: <RiFileList2Line/>
   },
   {
+    text: 'Premium',
+    icon: <BsTwitterX/>
+  },
+  {
     text: 'Profile',
     icon: <FaRegUser/>
   },
@@ -58,28 +62,33 @@ const sidebarMenuItem : TwitterSidebarButton [] = [
 ]
 export default function Home() {
   return (
-    <div className={inter.className}>
+    <div>
       <div className='grid grid-cols-12 h-screen w-screen px-56 '>
-        <div className='col-span-3 pt-8'>
-          <div className='text-3xl h-fit w-fit hover:bg-gray-800 rounded-full  p-2 cursor-pointer transition-all duration-75 ease-linear mx-6 '>
+        <div className='col-span-3 pt-1'>
+          <div className='text-3xl h-fit w-fit hover:bg-gray-800 rounded-full  p-2 cursor-pointer transition-all duration-75 ease-linear mx-7 '>
             <BsTwitterX/>
           </div>
-          <div className='mt-4 text-2xl px-4 pr-4'>
+          <div className='mt-4 text-xl px-4 pr-4'>
             
             {sidebarMenuItem.map((item) => 
             <li className='flex justify-start items-center gap-4 hover:bg-gray-800 px-5 py-2 rounded-full w-fit cursor-pointer mt-2' key={item.text} >
-                <span>{item.icon}</span>
+                <span className='text-2xl'>{item.icon}</span>
                 <span>{item.text}</span>
               </li>
             )}
-            <div className='mt-5 pl-3 pr-3'>
-              <button className='bg-[#1d8bf0] text-xl  p-4 rounded-full w-full font-bold'>Tweet</button>
+            <div className='mt-5 pr-3'>
+              <button className='bg-[#1d8bf0] text-xl  py-4 rounded-full w-full font-bold'>Tweet</button>
             </div>
             
           </div>
           
         </div>
-        <div className='col-span-6 border-r-[1px] border-l-[1px] border-gray-600'></div>
+        <div className='col-span-6 border-r-[0.5px] border-l-[0.5px] border-gray-600 '>
+          <Feedcard />
+          <Feedcard />
+          <Feedcard />
+
+        </div>
         <div className='col-span-3'></div>
       </div>
     </div>
