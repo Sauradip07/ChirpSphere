@@ -11,8 +11,9 @@ import { FaRegUser } from "react-icons/fa6";
 import { CgMoreO } from "react-icons/cg";
 import Feedcard from '@/components/FeedCard';
 import styles from './scrollHidden.module.css';
-import React from 'react';
-
+import React, { useCallback } from 'react';
+import { GoogleLogin } from '@react-oauth/google';
+import { CredentialResponse } from '@react-oauth/google';
 import { link } from 'fs';
 
 
@@ -61,6 +62,11 @@ const sidebarMenuItem : TwitterSidebarButton [] = [
   }
 ]
 export default function Home() {
+  
+
+  const handelLoginWithGoogle = useCallback((cred: CredentialResponse) => {
+
+  },[])
   return (
     <div>
       <div className='grid grid-cols-12 h-screen w-screen px-56 overflow-hidden'>
@@ -84,6 +90,7 @@ export default function Home() {
           
         </div>
         <div className='col-span-6 border-r-[0.5px] border-l-[0.5px] h-screen overflow-scroll overflow-x-hidden border-gray-600v' id="ScrollHider">
+          
           <Feedcard />
           <Feedcard />
           <Feedcard />
@@ -95,7 +102,12 @@ export default function Home() {
           <Feedcard />
 
         </div>
-        <div className='col-span-3'></div>
+        <div className='col-span-3 p-5'>
+          <div className='p-5 bg-slate-700 rounded-lg'>
+            <h1 className='my-2 text-2xl'>New to Twitter</h1>
+            <GoogleLogin onSuccess={cred => console.log(cred)} />
+          </div>
+        </div>
       </div>
     </div>
   )
